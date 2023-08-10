@@ -38,7 +38,18 @@
 <template lang="html">
     <section class="app-footer">
         <div class="app-footer-buttons">
-            <!-- <Button class="" title="Dark Mode Toggler"> {isDark ? <FaMoon /> : <FaSun />} </Button> -->
+            <AppButton
+                class=""
+                title="Dark Mode Toggler"
+                @click.prevent="
+                    () => {
+                        toggleAppTheme();
+                    }
+                "
+            >
+                <v-icon v-if="isDark" name="fa-sun" />
+                <v-icon v-else name="fa-moon" />
+            </AppButton>
         </div>
         <div class="app-footer-copyright">
             Made with
@@ -55,7 +66,21 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
+import AppButton from "@/atoms/AppButton/AppButton";
+
 export default {
-    name: "AppFooter"
+    name: "AppFooter",
+    components: {
+        AppButton
+    },
+    methods: {
+        ...mapActions(["toggleAppTheme"])
+    },
+    computed: {
+        ...mapState({
+            isDark: (state) => state.appTheme === "dark"
+        })
+    }
 };
 </script>

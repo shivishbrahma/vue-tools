@@ -4,9 +4,9 @@ import router from "@/router";
 import store from "@/store";
 import "@/styles/main.scss";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { FaTimes, FaBars, FaCoffee, FaHeart } from "oh-vue-icons/icons";
+import { FaTimes, FaBars, FaCoffee, FaHeart, FaMoon, FaSun } from "oh-vue-icons/icons";
 
-addIcons(FaTimes, FaBars, FaCoffee, FaHeart);
+addIcons(FaTimes, FaBars, FaCoffee, FaHeart, FaMoon, FaSun);
 
 const app = createApp(App);
 

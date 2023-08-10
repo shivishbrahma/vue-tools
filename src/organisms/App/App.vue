@@ -80,6 +80,11 @@ export default {
     },
     computed: {
         ...mapState(["appTheme"])
+    },
+    watch: {
+        appTheme(value) {
+            setCSSVariables(themes[value]);
+        }
     }
 };
 </script>

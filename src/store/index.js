@@ -5,7 +5,15 @@ export default createStore({
         appTheme: "dark"
     },
     getters: {},
-    mutations: {},
-    actions: {},
+    mutations: {
+        setAppTheme(state, { appTheme }) {
+            state.appTheme = appTheme;
+        }
+    },
+    actions: {
+        toggleAppTheme({ commit, state }) {
+            commit("setAppTheme", { appTheme: state.appTheme == "dark" ? "light" : "dark" });
+        }
+    },
     modules: {}
 });
