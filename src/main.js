@@ -1,6 +1,15 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import { createApp } from "vue";
+import App from "@/organisms/App/App.vue";
+import router from "@/router";
+import store from "@/store";
+import "@/styles/main.scss";
+import { OhVueIcon, addIcons } from "oh-vue-icons";
+import { FaTimes, FaBars, FaCoffee, FaHeart } from "oh-vue-icons/icons";
 
-createApp(App).use(store).use(store).use(router).mount('#app')
+addIcons(FaTimes, FaBars, FaCoffee, FaHeart);
+
+const app = createApp(App);
+
+app.use(store).use(router);
+app.component("v-icon", OhVueIcon);
+app.mount("#app");
