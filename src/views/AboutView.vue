@@ -4,7 +4,7 @@
     p {
         margin-bottom: 0.5rem;
     }
-    h3 {
+    .h3 {
         margin-bottom: 0.25rem * 3;
         margin-top: 0.5rem * 3;
     }
@@ -24,7 +24,7 @@
             development tools.
         </p>
 
-        <h3>Why Choose {{ appName }}?</h3>
+        <h2 class="h3">Why Choose {{ appName }}?</h2>
 
         <ul>
             <li>
@@ -58,7 +58,7 @@
             </li> -->
         </ul>
 
-        <h3>Explore Our Tool Categories:</h3>
+        <h2 class="h3">Explore Our Tool Categories:</h2>
 
         <ul>
             <!-- <li>
@@ -82,7 +82,7 @@
             </li> -->
         </ul>
 
-        <!-- <h3>Join Our Community:</h3>
+        <!-- <h2 class="h3">Join Our Community:</h2>
 
         <p>
             At {{ appName }}, we're more than just a platform – we're a community of developers who share a passion for
