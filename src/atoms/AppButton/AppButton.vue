@@ -132,7 +132,7 @@ export default {
     props: {
         type: { type: String, default: "button" },
         floating: { type: Boolean, default: false },
-        theme: { type: String, default: "primary" },
+        theme: { type: String, default: "default" },
         floatingLocation: { type: String, default: "left" },
         class: { type: String }
     },
