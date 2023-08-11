@@ -115,6 +115,9 @@
             <router-link to="/about" custom v-slot="{ isActive, route, navigate }">
                 <AppNavLink :active="isActive" :href="href" @click="navigate">{{ route.name }}</AppNavLink>
             </router-link>
+            <router-link to="/prettier" custom v-slot="{ isActive, route, navigate }">
+                <AppNavLink :active="isActive" :href="href" @click="navigate">{{ route.name }}</AppNavLink>
+            </router-link>
         </ul>
         <div className="app-navbar-brand">
             <img :src="logoImg" alt="Brand Icon" class="app-navbar-brand-logo" />
