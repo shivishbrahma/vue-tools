@@ -30,8 +30,18 @@
 
         &:hover {
             background-color: var(--baseBg);
-            border-color: var(--baseBg);
+            // border-color: var(--baseBg);
             color: var(--primary);
+        }
+
+        &.app-button-outline {
+            background-color: var(--baseBg);
+            color: var(--primary);
+            &:hover {
+                background-color: var(--primary);
+                border-color: var(--primary);
+                color: var(--baseBg);
+            }
         }
     }
 
@@ -43,21 +53,41 @@
 
         &:hover {
             background-color: var(--baseBg);
-            border-color: var(--baseBg);
+            // border-color: var(--baseBg);
             color: var(--secondary);
+        }
+
+        &.app-button-outline {
+            background-color: var(--baseBg);
+            color: var(--secondary);
+            &:hover {
+                background-color: var(--secondary);
+                border-color: var(--secondary);
+                color: var(--baseBg);
+            }
         }
     }
 
     &.app-button-tertiary,
     &.app-button-success {
-        background-color: var(--tertiary);
         border-color: var(--tertiary);
+        background-color: var(--tertiary);
         color: var(--baseBg);
 
         &:hover {
             background-color: var(--baseBg);
-            border-color: var(--baseBg);
+            // border-color: var(--baseBg);
             color: var(--tertiary);
+        }
+
+        &.app-button-outline {
+            background-color: var(--baseBg);
+            color: var(--tertiary);
+            &:hover {
+                background-color: var(--tertiary);
+                border-color: var(--tertiary);
+                color: var(--baseBg);
+            }
         }
     }
 
@@ -112,7 +142,12 @@
         v-if="type == 'link'"
         href="#btn"
         class="app-button"
-        :class="buttonThemeClass + floatingLocationClass + (floating ? ' app-button-floating' : '')"
+        :class="
+            buttonThemeClass +
+            (outline ? ' app-button-outline' : '') +
+            floatingLocationClass +
+            (floating ? ' app-button-floating' : '')
+        "
     >
         <slot></slot>
     </a>
@@ -120,7 +155,12 @@
         v-else
         :type="type"
         class="app-button"
-        :class="buttonThemeClass + floatingLocationClass + (floating ? ' app-button-floating' : '')"
+        :class="
+            buttonThemeClass +
+            (outline ? ' app-button-outline' : '') +
+            floatingLocationClass +
+            (floating ? ' app-button-floating' : '')
+        "
     >
         <slot></slot>
     </button>
@@ -133,6 +173,7 @@ export default {
         type: { type: String, default: "button" },
         floating: { type: Boolean, default: false },
         theme: { type: String, default: "default" },
+        outline: { type: Boolean, default: false },
         floatingLocation: { type: String, default: "left" },
         class: { type: String }
     },
