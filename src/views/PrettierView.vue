@@ -27,7 +27,7 @@
 <template lang="html">
     <section class="section-prettier">
         <header class="header">
-            <h1 class="h2">{{ title }}</h1>
+            <h1 class="h2">{{ title }} {{ language.toUpperCase() }}</h1>
 
             <div class="left-container">
                 <AppButton theme="success" @click="prettifyJSON">Prettify</AppButton>
@@ -51,7 +51,9 @@ export default {
     data() {
         return {
             code: "",
-            title: "Prettier"
+            title: "Prettier",
+            tabWidth: 4,
+            language: "json"
         };
     },
     props: {},
@@ -62,11 +64,11 @@ export default {
         ...mapMutations(["setAppTitle"]),
         prettifyJSON(event) {
             event.preventDefault();
-            console.log(this.code);
+            if (this.language === "json") this.code = JSON.stringify(JSON.parse(this.code), null, this.tabWidth);
         },
         compactJSON(event) {
             event.preventDefault();
-            console.log(this.code);
+            if (this.language === "json") this.code = JSON.stringify(JSON.parse(this.code));
         }
     },
     computed: {
