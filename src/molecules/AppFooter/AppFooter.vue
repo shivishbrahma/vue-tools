@@ -5,7 +5,7 @@
     .app-footer-buttons {
         display: flex;
 
-        .Button {
+        .app-button {
             border: none;
             &:hover {
                 background-color: transparent;
