@@ -116,11 +116,18 @@
                 <AppNavLink :active="isActive" :href="href" @click="navigate">{{ route.name }}</AppNavLink>
             </router-link>
         </ul>
+        <div className="app-navbar-brand">
+            <img :src="logoImg" alt="Brand Icon" class="app-navbar-brand-logo" />
+            <span class="app-navbar-brand-text">{{ appName }}</span>
+            <!-- <img src={logo_text} alt="Brand Text" className="app-navbar-brand-text" /> -->
+        </div>
     </nav>
 </template>
 
 <script>
 import AppNavLink from "@/atoms/AppNavLink/AppNavLink";
+import { mapState } from "vuex";
+import logoImg from "@/assets/logo.png";
 
 export default {
     name: "AppNavbar",
@@ -129,7 +136,8 @@ export default {
     },
     data() {
         return {
-            isNavbarOpen: false
+            isNavbarOpen: false,
+            logoImg
         };
     },
     methods: {
@@ -137,6 +145,9 @@ export default {
             event.preventDefault();
             this.isNavbarOpen = !this.isNavbarOpen;
         }
+    },
+    computed: {
+        ...mapState(["appName"])
     }
 };
 </script>

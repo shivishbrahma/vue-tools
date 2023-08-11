@@ -77,13 +77,17 @@ export default {
     },
     mounted() {
         setCSSVariables(themes[this.appTheme]);
+        window.document.title = this.appTitle;
     },
     computed: {
-        ...mapState(["appTheme"])
+        ...mapState(["appTheme", "appTitle"])
     },
     watch: {
         appTheme(value) {
             setCSSVariables(themes[value]);
+        },
+        appTitle(value) {
+            window.document.title = value;
         }
     }
 };
