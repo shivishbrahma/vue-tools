@@ -27,12 +27,29 @@
 <template lang="html">
     <section class="section-prettier">
         <header class="header">
-            <h1 class="h2">{{ title }} {{ language.toUpperCase() }}</h1>
+            <h1 class="h2">
+                {{ title }}
+                <AppDropdown
+                    :default-option="language"
+                    :option-list="languages"
+                    @change-value="(lang) => changeLanguage(lang)"
+                />
+            </h1>
 
             <div class="left-container">
-                <AppButton theme="success" @click="prettifyJSON">Prettify</AppButton>
-                <AppButton theme="success" outline @click="compactJSON">Compact</AppButton>
-                <!-- <button v-on:click="compactJSON">Compact</button> -->
+                <AppFragment v-for="(fn, i) in prettierConfig[language].functions" :key="i">
+                    <AppButton
+                        :theme="fn.theme"
+                        @click="
+                            () => {
+                                [this.code, this.language] = fn.execute(this);
+                            }
+                        "
+                        :outline="fn.outline"
+                    >
+                        {{ fn.label }}
+                    </AppButton>
+                </AppFragment>
             </div>
         </header>
         <textarea v-model="code"></textarea>
@@ -42,37 +59,45 @@
 <script>
 import { mapMutations, mapState } from "vuex";
 import AppButton from "@/atoms/AppButton/AppButton";
+import AppDropdown from "@/atoms/AppDropdown/AppDropdown";
+import AppFragment from "@/atoms/AppFragment/AppFragment";
+import { prettierConfig } from "@/utils/prettier";
 
 export default {
     name: "PrettierView",
     mounted() {
         this.setAppTitle({ appTitle: `${this.title} - ${this.appName}` });
+        this.code = prettierConfig[this.language].sample;
     },
     data() {
         return {
             code: "",
             title: "Prettier",
             tabWidth: 4,
-            language: "json"
+            language: "json",
+            languages: ["json", "yaml"],
+            prettierConfig
         };
     },
     props: {},
     components: {
-        AppButton
+        AppButton,
+        AppDropdown,
+        AppFragment
     },
     methods: {
         ...mapMutations(["setAppTitle"]),
-        prettifyJSON(event) {
-            event.preventDefault();
-            if (this.language === "json") this.code = JSON.stringify(JSON.parse(this.code), null, this.tabWidth);
-        },
-        compactJSON(event) {
-            event.preventDefault();
-            if (this.language === "json") this.code = JSON.stringify(JSON.parse(this.code));
+        changeLanguage(lang) {
+            this.language = lang;
         }
     },
     computed: {
         ...mapState(["appName"])
+    },
+    watch: {
+        // language(newVal) {
+        //     this.code = prettierConfig[newVal].sample;
+        // }
     }
 };
 </script>
