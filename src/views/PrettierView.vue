@@ -58,9 +58,9 @@
 
 <script>
 import { mapMutations, mapState } from "vuex";
-import AppButton from "@/atoms/AppButton/AppButton";
-import AppDropdown from "@/atoms/AppDropdown/AppDropdown";
-import AppFragment from "@/atoms/AppFragment/AppFragment";
+import AppButton from "@/atoms/AppButton";
+import AppDropdown from "@/atoms/AppDropdown";
+import AppFragment from "@/atoms/AppFragment";
 import { prettierConfig } from "@/utils/prettier";
 
 export default {
