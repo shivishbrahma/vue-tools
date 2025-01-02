@@ -1,3 +1,5 @@
+import YAML from "yaml";
+
 export const prettierConfig = {
     json: {
         sample: `{
@@ -37,7 +39,7 @@ export const prettierConfig = {
                 theme: "secondary",
                 outline: false,
                 execute: ({ code, tabWidth }) => {
-                    return [jsonToYaml(JSON.parse(code), tabWidth), "yaml"];
+                    return [YAML.stringify(JSON.parse(code), { indent: tabWidth }), "yaml"];
                 }
             }
         ]
@@ -71,44 +73,9 @@ nullableValue: null`,
                 theme: "secondary",
                 outline: false,
                 execute: ({ code, tabWidth }) => {
-                    return [yamlToJson(code, tabWidth), "json"];
+                    return [JSON.stringify(YAML.parse(code), null, tabWidth), "json"];
                 }
             }
         ]
     }
 };
-
-export function jsonToYaml(jsonObj, tabWidth = 0, currentTabWidth = 0) {
-    const spaces = " ".repeat(currentTabWidth);
-    let yamlString = "",
-        lines;
-
-    if (typeof jsonObj === "object") {
-        if (Array.isArray(jsonObj)) {
-            for (const item of jsonObj) {
-                yamlString += `\n${spaces}- ${jsonToYaml(item, tabWidth, currentTabWidth + tabWidth)}`;
-            }
-        } else {
-            lines = [];
-            for (const key in jsonObj) {
-                if (Object.hasOwn(jsonObj, key)) {
-                    lines.push(
-                        `${spaces}${key}:${
-                            typeof jsonObj[key] === "object" && !Array.isArray(jsonObj[key]) ? "\n" : " "
-                        }${jsonToYaml(jsonObj[key], tabWidth, currentTabWidth + tabWidth)}`
-                    );
-                }
-            }
-            yamlString += lines.join("\n");
-        }
-    } else {
-        yamlString += `${jsonObj}`;
-    }
-
-    return yamlString;
-}
-
-export function yamlToJson(yamlString, tabWidth = 0, currentTabWidth = 0) {
-    
-}
-
