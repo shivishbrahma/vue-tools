@@ -70,9 +70,9 @@ import { mapActions, mapState } from "vuex";
 import AppButton from "@/atoms/AppButton";
 
 export default {
-    name: "AppFooter",
+    name: "app-footer",
     components: {
-        AppButton
+        "app-button": AppButton
     },
     methods: {
         ...mapActions(["toggleAppTheme"])

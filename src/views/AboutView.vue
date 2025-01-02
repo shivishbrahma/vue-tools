@@ -1,20 +1,7 @@
 <style lang="scss">
-.app-page-section-container {
-    padding: 0.5rem;
-    p {
-        margin-bottom: 0.5rem;
-    }
-    .h3 {
-        margin-bottom: 0.25rem * 3;
-        margin-top: 0.5rem * 3;
-    }
-    li {
-        margin-bottom: 0.25rem;
-    }
-}
 </style>
 <template lang="html">
-    <AppPageSection sectionTitle="About Us">
+    <app-page-section sectionTitle="About Us">
         <p>Welcome to {{ appName }} - Your Ultimate Destination for Web Development Tools!</p>
 
         <p>
@@ -96,7 +83,7 @@
         </p>
 
         <p>Happy Coding!</p> -->
-    </AppPageSection>
+    </app-page-section>
 </template>
 
 <script>
@@ -106,7 +93,7 @@ import AppPageSection from "@/molecules/AppPageSection";
 export default {
     name: "AboutView",
     components: {
-        AppPageSection
+        "app-page-section": AppPageSection
     },
     mounted() {
         this.setAppTitle({ appTitle: `About - ${this.appName}` });

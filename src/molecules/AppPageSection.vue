@@ -1,4 +1,4 @@
-<style lang="scss" scoped>
+<style lang="scss">
 .app-page-section {
     padding: 0.5rem 0;
     background-color: var(--baseBg);
@@ -38,6 +38,20 @@
             color: var(--quaternary);
         }
     }
+
+    .app-page-section-container {
+        padding: 0.5rem;
+        p {
+            margin-bottom: 0.5rem;
+        }
+        .h3 {
+            margin-bottom: 0.25rem * 3;
+            margin-top: 0.5rem * 3;
+        }
+        li {
+            margin-bottom: 0.25rem;
+        }
+    }
 }
 </style>
 
@@ -53,7 +67,7 @@
 
 <script>
 export default {
-    name: "AppPageSection",
+    name: "app-page-section",
     created() {},
     data() {
         return {};

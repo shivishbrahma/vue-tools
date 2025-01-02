@@ -168,7 +168,7 @@
 
 <script>
 export default {
-    name: "AppButton",
+    name: "app-button",
     props: {
         type: { type: String, default: "button" },
         floating: { type: Boolean, default: false },

@@ -50,7 +50,7 @@
 <template>
     <div className="app">
         <header className="app-header">
-            <AppNavbar />
+            <app-navbar />
         </header>
 
         <main className="app-main">
@@ -58,7 +58,7 @@
         </main>
 
         <footer className="app-footer">
-            <AppFooter />
+            <app-footer />
         </footer>
     </div>
 </template>
@@ -70,10 +70,10 @@ import { setCSSVariables, themes } from "@/utils/theme";
 import { mapState } from "vuex";
 
 export default {
-    name: "App",
+    name: "app",
     components: {
-        AppNavbar,
-        AppFooter
+        "app-navbar": AppNavbar,
+        "app-footer": AppFooter
     },
     mounted() {
         setCSSVariables(themes[this.appTheme]);

@@ -34,7 +34,7 @@
 
 <script>
 export default {
-    name: "AppNavLink",
+    name: "app-nav-link",
     props: {
         active: Boolean,
         href: String

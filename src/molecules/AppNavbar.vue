@@ -110,13 +110,13 @@
         </div>
         <ul class="app-navbar-list">
             <router-link to="/" custom v-slot="{ isActive, route, navigate }">
-                <AppNavLink :active="isActive" :href="href" @click="navigate">{{ route.name }}</AppNavLink>
+                <app-nav-link :active="isActive" :href="href" @click="navigate">{{ route.name }}</app-nav-link>
             </router-link>
             <router-link to="/about" custom v-slot="{ isActive, route, navigate }">
-                <AppNavLink :active="isActive" :href="href" @click="navigate">{{ route.name }}</AppNavLink>
+                <app-nav-link :active="isActive" :href="href" @click="navigate">{{ route.name }}</app-nav-link>
             </router-link>
             <router-link to="/prettier" custom v-slot="{ isActive, route, navigate }">
-                <AppNavLink :active="isActive" :href="href" @click="navigate">{{ route.name }}</AppNavLink>
+                <app-nav-link :active="isActive" :href="href" @click="navigate">{{ route.name }}</app-nav-link>
             </router-link>
         </ul>
         <div className="app-navbar-brand">
@@ -133,9 +133,9 @@ import { mapState } from "vuex";
 import logoImg from "@/assets/logo.png";
 
 export default {
-    name: "AppNavbar",
+    name: "app-navbar",
     components: {
-        AppNavLink
+        "app-nav-link": AppNavLink
     },
     data() {
         return {

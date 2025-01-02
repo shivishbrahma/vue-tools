@@ -43,7 +43,7 @@
 
 <script>
 export default {
-    name: "AppDropdown",
+    name: "app-dropdown",
     created() {},
     data() {
         return {
