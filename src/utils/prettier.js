@@ -70,9 +70,8 @@ nullableValue: null`,
                 label: "Convert to JSON",
                 theme: "secondary",
                 outline: false,
-                execute: ({ code }) => {
-                    // return JSON.stringify(JSON.parse(code));
-                    return [code, "json"];
+                execute: ({ code, tabWidth }) => {
+                    return [yamlToJson(code, tabWidth), "json"];
                 }
             }
         ]
@@ -108,3 +107,8 @@ export function jsonToYaml(jsonObj, tabWidth = 0, currentTabWidth = 0) {
 
     return yamlString;
 }
+
+export function yamlToJson(yamlString, tabWidth = 0, currentTabWidth = 0) {
+    
+}
+
