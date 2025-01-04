@@ -28,8 +28,8 @@ export default {
                 "Helvetica Neue",
                 "sans-serif"
             ],
-            serif: ["Merriweather", "serif"],
-            mono: ["Source Code Pro", "Menlo", "Monaco", "Courier New", "Courier", "monospace"]
+            serif: ["Merriweather", "Inter", "Times New Roman", "serif"],
+            monospace: ["Source Code Pro", "Menlo", "Monaco", "Courier New", "Courier", "monospace"]
         },
         extend: {}
     },
