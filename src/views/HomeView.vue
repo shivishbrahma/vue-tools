@@ -20,7 +20,7 @@
                 :card-img="{ src: base_url + 'tools/' + tool.img_url, alt: tool.name + ' Cover' }"
             >
                 <h5 class="tool-title">
-                    <a :href="base_url + '#' + tool.link" target="_blank" rel="noreferrer">
+                    <a :href="base_url + '#tools' + tool.link" target="_blank" rel="noreferrer">
                         {{ tool.name }}
                     </a>
                 </h5>
