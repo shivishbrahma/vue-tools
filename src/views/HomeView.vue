@@ -1,6 +1,4 @@
 <style lang="scss">
-.tool-title {
-}
 .tool-desc {
     overflow: hidden;
     text-overflow: ellipsis;

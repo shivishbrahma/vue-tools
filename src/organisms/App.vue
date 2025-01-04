@@ -21,43 +21,22 @@
 */
 
 .app {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    position: relative;
     color: var(--base);
     background-color: var(--baseBg);
-
-    // &.App-dark {
-    //     color: var(--base);
-    //     background-color: var(--baseBg);
-    // }
-}
-
-.app-header {
-    flex: 0 1 auto;
-}
-
-.app-main {
-    flex: 1;
-}
-
-.app-footer {
-    flex: 0 1 auto;
 }
 </style>
 
 <template>
-    <div className="app">
-        <header className="app-header">
+    <div className="app flex flex-col h-screen relative">
+        <header className="app-header flex-initial">
             <app-navbar />
         </header>
 
-        <main className="app-main">
+        <main className="app-main flex-auto">
             <router-view />
         </main>
 
-        <footer className="app-footer">
+        <footer className="app-footer flex-initial">
             <app-footer />
         </footer>
     </div>
