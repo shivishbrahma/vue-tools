@@ -3,10 +3,7 @@
     background-color: var(--primaryBg);
 
     .app-footer-buttons {
-        display: flex;
-
         .app-button {
-            border: none;
             &:hover {
                 background-color: transparent;
             }
@@ -14,19 +11,15 @@
     }
 
     .app-footer-copyright {
-        padding: 0.5rem 0;
         font-size: 1em;
-        text-align: center;
 
         .red-heart {
-            color: #ff006e;
             margin-bottom: -0.25rem;
             font-size: 1.25rem;
             text-shadow: #ff006e 0.1em 0.1em 0.1em;
         }
 
         .green-tea {
-            color: #4daa57;
             font-size: 1.5rem;
             margin-bottom: -0.35rem;
             text-shadow: #4daa57 0.1em 0.1em 0.1em;
@@ -36,10 +29,10 @@
 </style>
 
 <template lang="html">
-    <section class="app-footer">
+    <section class="app-footer flex flex-col">
         <div class="app-footer-buttons">
             <AppButton
-                class=""
+                class="border-none px-1 py-2"
                 title="Dark Mode Toggler"
                 @click.prevent="
                     () => {
@@ -51,13 +44,13 @@
                 <v-icon v-else name="fa-moon" />
             </AppButton>
         </div>
-        <div class="app-footer-copyright">
+        <div class="app-footer-copyright text-center py-2">
             Made with
-            <i class="red-heart">
+            <i class="red-heart text-red">
                 <v-icon name="fa-heart" />
             </i>
             and
-            <i class="green-tea">
+            <i class="green-tea text-green">
                 <v-icon name="fa-coffee" />
             </i>
             by Purbayan Chowdhury
