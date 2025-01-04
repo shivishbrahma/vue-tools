@@ -10,7 +10,7 @@ export default {
             secondary: "#a50d12",
             tertiary: "#02642c",
             quaternary: "#fec601",
-            "base-bg": "#ffffff",
+            white: "#ffffff",
             "primary-bg": "#e6f8ff",
             red: "#ff006e",
             green: "#4daa57"

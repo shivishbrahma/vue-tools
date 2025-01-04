@@ -71,8 +71,14 @@ a:hover {
     color: var(--tertiary);
 }
 
-code {
+code,
+input,
+kbd,
+pre,
+samp,
+textarea {
     font-family: theme("fontFamily.monospace");
+    font-size: 0.9rem;
 }
 
 h1,
