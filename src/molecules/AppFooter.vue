@@ -1,6 +1,7 @@
 <style lang="scss" scoped>
 .app-footer {
     background-color: var(--primaryBg);
+    color: var(--base);
     @apply flex flex-col;
 
     .app-footer-buttons {
@@ -12,18 +13,19 @@
     }
 
     .app-footer-copyright {
-        @apply text-center py-2 text-base;
+        @apply text-center py-2;
+        font-family: var(--base);
 
         .red-heart {
             @apply text-red text-xl;
-            margin-bottom: -0.25rem;
             text-shadow: #ff006e 0.1em 0.1em 0.1em;
+            margin-bottom: -0.25rem;
         }
 
         .green-tea {
-            @apply text-green text-2xl;
+            @apply text-green text-xl;
+            text-shadow: #4daa57 0.1em 0.1em 0.1em;
             margin-bottom: -0.35rem;
-            // text-shadow: #4daa57 0.1em 0.1em 0.1em;
         }
     }
 }
@@ -48,11 +50,11 @@
         <div class="app-footer-copyright">
             Made with
             <i class="red-heart">
-                <v-icon name="fa-heart" />
+                <v-icon name="fa-heart" :scale="1.2" />
             </i>
             and
             <i class="green-tea">
-                <v-icon name="fa-coffee" />
+                <v-icon name="fa-coffee" :scale="1.3" />
             </i>
             by Purbayan Chowdhury
         </div>

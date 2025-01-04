@@ -4,7 +4,7 @@
         href="#btn"
         :class="[
             'app-button',
-            buttonThemeClass,
+            'app-button-' + theme,
             outline ? 'border' : '',
             floating ? 'fixed' : '',
             floatingLocationClass
@@ -17,8 +17,8 @@
         :type="type"
         :class="[
             'app-button',
-            buttonThemeClass,
-            outline ? 'border' : '',
+            'app-button-' + theme,
+            outline ? 'app-button-outline' : '',
             floating ? 'fixed' : '',
             floatingLocationClass
         ]"
@@ -39,50 +39,64 @@ export default {
         class: { type: String }
     },
     computed: {
-        buttonThemeClass() {
-            switch (this.theme) {
-                case 'primary':
-                    return 'bg-primary text-white hover:bg-white hover:text-primary';
-                case 'secondary':
-                    return 'bg-secondary text-white hover:bg-white hover:text-secondary';
-                case 'tertiary':
-                    return 'bg-tertiary text-white hover:bg-white hover:text-tertiary';
-                case 'error':
-                    return 'bg-error text-white hover:bg-white hover:text-error';
-                case 'success':
-                    return 'bg-success text-white hover:bg-white hover:text-success';
-                default:
-                    return 'bg-primaryBg text-base hover:bg-white hover:text-primary';
-            }
-        },
         floatingLocationClass() {
             switch (this.floatingLocation) {
-                case 'top':
-                    return 'top-2';
-                case 'left':
-                    return 'left-2';
-                case 'right':
-                    return 'right-2';
-                case 'bottom':
-                    return 'bottom-2';
-                case 'top-left':
-                    return 'top-2 left-2';
-                case 'top-right':
-                    return 'top-2 right-2';
-                case 'bottom-left':
-                    return 'bottom-2 left-2';
-                case 'bottom-right':
-                    return 'bottom-2 right-2';
+                case "top":
+                    return "top-2";
+                case "left":
+                    return "left-2";
+                case "right":
+                    return "right-2";
+                case "bottom":
+                    return "bottom-2";
+                case "top-left":
+                    return "top-2 left-2";
+                case "top-right":
+                    return "top-2 right-2";
+                case "bottom-left":
+                    return "bottom-2 left-2";
+                case "bottom-right":
+                    return "bottom-2 right-2";
                 default:
-                    return '';
+                    return "";
             }
         }
     }
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+$colors: (
+    primary: var(--primary),
+    secondary: var(--secondary),
+    tertiary: var(--tertiary),
+    quaternary: var(--quaternary),
+    success: var(--tertiary),
+    error: var(--secondary)
+);
+
+@each $name, $color in $colors {
+    .app-button-#{$name} {
+        border-color: $color;
+        background-color: $color;
+        color: var(--baseBg);
+        &:hover {
+            color: $color;
+            background-color: var(--baseBg);
+        }
+        &.app-button-outline {
+            background-color: var(--baseBg);
+            color: $color;
+            &:hover {
+                color: var(--baseBg);
+                background-color: $color;
+            }
+        }
+    }
+}
+
 .app-button {
-    @apply px-3 py-2 rounded shadow cursor-pointer text-center;
+    @apply px-3 py-2 rounded shadow cursor-pointer text-center border;
+    transition: all 0.3s;
 }
 </style>

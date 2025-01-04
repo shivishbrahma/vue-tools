@@ -1,5 +1,5 @@
-@use "@/styles/variables";
-@use "@/styles/helper";
+@use "./variables";
+@use "./helper";
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&family=Source+Code+Pro&display=swap");
 
@@ -124,3 +124,4 @@ h5,
         font-size: 80%;
     }
 }
+

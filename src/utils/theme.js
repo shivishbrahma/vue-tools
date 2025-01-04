@@ -32,7 +32,7 @@ export const themes = {
     dark: {
         base: "#f4f2f1",
         primary: "#00a8e8",
-        secondary: "#f15156",
+        secondary: "#ff006e",
         tertiary: "#04f06a",
         quaternary: "#ffe066",
         baseBg: "#00171f",
