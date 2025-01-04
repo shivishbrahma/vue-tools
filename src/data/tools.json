@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "name": "BMI Calculator",
+        "desc": "Calculate your Body Mass Index (BMI) using the BMI Calculator.",
+        "link": "/bmi-calculator",
+        "img_url": "bmi-calculator.webp"
+    }
+]

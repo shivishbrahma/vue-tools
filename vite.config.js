@@ -8,7 +8,10 @@ export default defineConfig({
         "process.env.PUBLIC_URL": JSON.stringify(
             process.env.NODE_ENV === "production" ? "https://shivishbrahma.github.io/" : "http://localhost:5173/"
         ),
-        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+        "process.env.BASE_URL": JSON.stringify(
+            process.env.NODE_ENV === "production" ? "https://shivishbrahma.github.io/kodakriti/" : "http://localhost:5173/kodakriti/"
+        ),
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     },
     plugins: [
         vue({}),
