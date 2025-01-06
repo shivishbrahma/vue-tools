@@ -1,48 +1,30 @@
 <style lang="scss" scoped>
 .app-navbar {
-    padding: 0.5rem 0.75rem;
-    display: flex;
-    gap: 0.5rem;
     background: var(--primaryBg);
-    height: 4rem;
+    @apply px-3 py-2 flex gap-2 h-16;
 
     .app-navbar-brand {
-        display: flex;
-        gap: 0.75rem;
-        margin-left: auto;
-        align-items: center;
+        @apply flex gap-3 ml-auto items-center;
 
         .app-navbar-brand-logo {
-            display: inline-block;
-            width: 3rem;
-            height: 3rem;
+            @apply inline-block w-12 h-12;
         }
 
         .app-navbar-brand-text {
-            display: inline-block;
-            font-size: 1.25rem;
-            // line-height: 2;
+            @apply inline-block text-xl;
         }
     }
 
     .app-navbar-list {
-        display: flex;
-        gap: 0.25rem;
-        list-style: none;
-        align-items: center;
+        @apply flex gap-2 list-none items-center;
 
         .app-navbar-item a {
-            text-decoration: none;
-
-            // &.active,
-            // &:hover {
-            //     text-decoration: underline;
-            // }
+            @apply no-underline;
         }
     }
 
     .app-navbar-toggler {
-        display: none;
+        @apply hidden;
     }
 }
 
@@ -50,7 +32,7 @@
     .app-navbar {
         .app-navbar-brand {
             .app-navbar-brand-text {
-                display: none;
+                @apply hidden;
             }
         }
     }
@@ -59,44 +41,29 @@
 @media screen and (max-width: 428px) {
     .app-navbar {
         .app-navbar-list {
-            display: none;
-            transition: transform ease-in-out 1s;
-            transform: translate(100%, 100%);
+            // display: none;
+            // transition: transform ease-in-out 1s;
+            // transform: translate(100%, 100%);
+            @apply hidden transition-transform ease-in-out duration-1000 transform translate-x-full;
         }
 
         .app-navbar-toggler {
-            display: flex;
-            align-items: center;
+            @apply flex items-center;
         }
     }
 
     .app-navbar.active {
         .app-navbar-list {
-            gap: 1rem;
-            transform: translate(0, 0);
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
             background: var(--primaryBg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            z-index: 1;
+            @apply flex flex-col justify-center items-center gap-4 w-full h-full top-0 left-0 absolute z-10 translate-x-0 translate-y-0;
 
             .app-navbar-item {
-                width: 100%;
-                max-width: 200px;
+                @apply w-full max-w-xs;
             }
         }
 
         .app-navbar-toggler {
-            top: 1rem;
-            left: 1rem;
-            position: absolute;
-            z-index: 2;
+            @apply top-4 left-4 absolute z-20;
         }
     }
 }
@@ -122,7 +89,6 @@
         <div className="app-navbar-brand">
             <img :src="logoImg" alt="Brand Icon" class="app-navbar-brand-logo" />
             <span class="app-navbar-brand-text">{{ appName }}</span>
-            <!-- <img src={logo_text} alt="Brand Text" className="app-navbar-brand-text" /> -->
         </div>
     </nav>
 </template>

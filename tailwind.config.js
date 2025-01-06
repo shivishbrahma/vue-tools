@@ -5,15 +5,16 @@ export default {
         colors: {
             transparent: "transparent",
             current: "currentColor",
-            base: "#302b27",
-            primary: "#00374d",
-            secondary: "#a50d12",
-            tertiary: "#02642c",
-            quaternary: "#fec601",
-            "base-bg": "#ffffff",
-            "primary-bg": "#e6f8ff",
+            white: "#ffffff",
             red: "#ff006e",
-            green: "#4daa57"
+            blue: "#00a8e8",
+            yellow: "#ffe066",
+            green: "#04f06a",
+            "blue-dark": "#00374d",
+            "red-dark": "#a50d12",
+            "green-dark": "#02642c",
+            "yellow-dark": "#fec601",
+            black: "#302b2a",
         },
         fontFamily: {
             sans: [

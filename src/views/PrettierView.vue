@@ -1,25 +1,20 @@
 <style lang="scss" scoped>
 .section-prettier {
-    padding: 0.5rem;
-    height: 100%;
+    @apply p-2 h-full;
     .header {
-        display: flex;
-        .h2 {
-            color: var(--tertiary);
-        }
+        @apply flex flex-wrap;
     }
     .left-container {
-        margin-left: auto;
+        @apply ml-auto gap-1 flex;
     }
     textarea {
-        width: 100%;
+        @apply w-full p-2;
         height: calc(100% - 3.5rem);
         border: 1px solid var(--tertiary);
         border-radius: 0.5rem;
         resize: none;
         background-color: var(--base);
         color: var(--primaryBg);
-        padding: 0.5rem;
     }
 }
 </style>
@@ -27,14 +22,14 @@
 <template lang="html">
     <section class="section-prettier">
         <header class="header">
-            <h1 class="h2">
+            <h3 class="text-tertiary">
                 {{ title }}
                 <AppDropdown
                     :default-option="language"
                     :option-list="languages"
                     @change-value="(lang) => changeLanguage(lang)"
                 />
-            </h1>
+            </h3>
 
             <div class="left-container">
                 <AppFragment v-for="(fn, i) in prettierConfig[language].functions" :key="i">
@@ -88,6 +83,7 @@ export default {
     methods: {
         ...mapMutations(["setAppTitle"]),
         changeLanguage(lang) {
+            this.code = prettierConfig[lang].sample;
             this.language = lang;
         }
     },
