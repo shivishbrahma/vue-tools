@@ -1,5 +1,5 @@
-@use "@/styles/variables";
-@use "@/styles/helper";
+@use "./variables";
+@use "./helper";
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&family=Source+Code+Pro&display=swap");
 
@@ -71,8 +71,15 @@ a:hover {
     color: var(--tertiary);
 }
 
-code {
+code,
+input,
+kbd,
+pre,
+samp,
+textarea {
     font-family: theme("fontFamily.monospace");
+    font-size: 0.9rem;
+    background-color: var(--primaryBg);
 }
 
 h1,
@@ -118,3 +125,4 @@ h5,
         font-size: 80%;
     }
 }
+

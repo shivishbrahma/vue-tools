@@ -1,35 +1,38 @@
 <style lang="scss" scoped>
 .app-footer {
     background-color: var(--primaryBg);
+    color: var(--base);
+    @apply flex flex-col;
 
     .app-footer-buttons {
         .app-button {
             &:hover {
-                background-color: transparent;
+                @apply bg-transparent;
             }
         }
     }
 
     .app-footer-copyright {
-        font-size: 1em;
+        @apply text-center py-2;
+        font-family: var(--base);
 
         .red-heart {
-            margin-bottom: -0.25rem;
-            font-size: 1.25rem;
+            @apply text-red text-xl;
             text-shadow: #ff006e 0.1em 0.1em 0.1em;
+            margin-bottom: -0.25rem;
         }
 
         .green-tea {
-            font-size: 1.5rem;
-            margin-bottom: -0.35rem;
+            @apply text-green text-xl;
             text-shadow: #4daa57 0.1em 0.1em 0.1em;
+            margin-bottom: -0.35rem;
         }
     }
 }
 </style>
 
 <template lang="html">
-    <section class="app-footer flex flex-col">
+    <section class="app-footer">
         <div class="app-footer-buttons">
             <AppButton
                 class="border-none px-1 py-2"
@@ -44,14 +47,14 @@
                 <v-icon v-else name="fa-moon" />
             </AppButton>
         </div>
-        <div class="app-footer-copyright text-center py-2">
+        <div class="app-footer-copyright">
             Made with
-            <i class="red-heart text-red">
-                <v-icon name="fa-heart" />
+            <i class="red-heart">
+                <v-icon name="fa-heart" :scale="1.2" />
             </i>
             and
-            <i class="green-tea text-green">
-                <v-icon name="fa-coffee" />
+            <i class="green-tea">
+                <v-icon name="fa-coffee" :scale="1.3" />
             </i>
             by Purbayan Chowdhury
         </div>
